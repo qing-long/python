@@ -26,7 +26,7 @@ steps:
     - docker rm -f python-docs
     - docker run --name=python-docs -p 4001:4001 -d buglan/python-docs
 
-  - name: notify
-    image: plugins/gitter
-    settings:
-      webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c
+- name: notify
+  image: plugins/gitter
+  settings:
+    webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c
