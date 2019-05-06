@@ -7,6 +7,6 @@ RUN npm install -g gitbook-cli http-server && \
     gitbook install && (gitbook build . _app || gitbook build . _app)
 
 WORKDIR /book/_app
-EXPOSE 9000
+EXPOSE 4001
 
 CMD [ "http-server", "-g", "-a", "0.0.0.0", "-p", "4001" ]

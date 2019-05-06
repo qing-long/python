@@ -2,11 +2,6 @@ kind: pipeline
 name: python-docs
 
 steps:
-- name: build
-  image: node:11
-  commands:
-  - yarn
-
 - name: publish
   image: plugins/docker:latest
   settings:
@@ -29,4 +24,9 @@ steps:
     script:
     - docker pull buglan/python-docs:latest
     - docker rm -f python-docs
-    - docker run --name=python-docs -p 5000:5000 -d buglan/python-docs
+    - docker run --name=python-docs -p 4001:4001 -d buglan/python-docs
+
+  - name: notify
+    image: plugins/gitter
+    settings:
+      webhook: https://webhooks.gitter.im/e/bf9402f8c689cffaf87c
