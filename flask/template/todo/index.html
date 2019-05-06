@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block title%}todo 小网站{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1 class="text-success text-center">Todo List</h1>
+    <br>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">标题</th>
+                    <th scope="col">开始时间</th>
+                    <th scope="col">结束时间</th>
+                    <th scope="col">当前状态</th>
+                    <th scope="col">管理</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for todo in todos%}
+                <tr>
+                    <th scope="row">{{todo.id}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.created_time}}</td>
+                    <td>{{todo.finished_time}}</td>
+                    <td>{{todo.status}}</td>
+                    <td><a href="{{url_for('add_todo')}}">新增</a> <a href="{{url_for('toggle', id=todo.id)}}">切换</a> <a href="{{url_for('update_todo', id=todo.id)}}">修改</a> <a href="{{url_for('delete_todo', id=todo.id)}}">删除</a> <a href="{{url_for('search_todo')}}">搜索</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

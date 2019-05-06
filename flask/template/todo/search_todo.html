@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block title%}搜索 | todo 小网站{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1 class="text-success text-center">Search Todo</h1>
+    <br>
+    <form action="{{url_for('search_todo')}}" method="post">
+        <div class="form-group">
+            <label for="email">标题:</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+{%endblock%}

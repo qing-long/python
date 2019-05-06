@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{%block title%}新增 | todo 小网站{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1 class="text-success text-center">Add Todo</h1>
+    <br>
+    <form action="{{url_for('add_todo')}}" method="post">
+        <div class="form-group">
+            <label for="email">标题:</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <p><label for="created_time">开始时间: </label><input type="text" name="created_time" readonly/></p>
+        <p><label for="created_time">结束时间: </label><input type="text" name="finished_time" readonly/></p>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+{%endblock%}
+
+{% block script %}
+<script charset="utf-8">
+$("input[name='created_time']").datetimepicker({
+  minView : "day",
+  language : 'zh-CN',  autoclose : true, //  true:选择时间后窗口自动关闭
+  format : 'yyyy-mm-dd hh:00:00', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+  todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+  startDate : new Date() ,  // 窗口可选时间从今天开始
+})
+$("input[name='finished_time']").datetimepicker({
+  minView : "day", //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+  language : 'zh-CN', // 语言
+  autoclose : true, //  true:选择时间后窗口自动关闭
+  format : 'yyyy-mm-dd hh:00:00', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+  todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+  startDate : new Date() ,  // 窗口可选时间从今天开始
+})
+</script>
+{% endblock %}

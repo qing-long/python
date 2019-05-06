@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block title%}修改 | todo 小网站{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1 class="text-success text-center">Update Todo</h1>
+    <br>
+    <form action="{{url_for('update_todo')}}" method="post">
+        <div class="form-group">
+            <label for="email">标题:</label>
+            <input type="text" class="form-control" name="title" value="{{todo.title}}">
+        </div>
+        <input type="hidden" name="id" value="{{request.args.get('id')}}" />
+        <p><label for="created_time">开始时间: </label><input type="text" name="created_time" value="{{todo.created_time}}" /></p>
+        <p><label for="created_time">结束时间: </label><input type="text" name="finished_time" value="{{todo.finished_time}}"/></p>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+{%endblock%}
