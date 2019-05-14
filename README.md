@@ -50,7 +50,7 @@
     - class
     - module
 - ### 魔术方法
-    - [magic_method](./magic_method/magic_method.md)
+    - [magic_method](./magic_method.md)
 - ### 标准库
     - [base64](./base64.md)
     - [datetime](./datetime/datetime.md)
