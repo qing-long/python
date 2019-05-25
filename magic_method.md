@@ -4,7 +4,22 @@
 
 ### 字符串相关
 - `__str__`
+
+```python
+class Foo:
+		def __str__(self):
+			return 'Foo class'
+```
+
 - `__repr__`
+
+```python
+class Foo:
+		def __str__(self):
+			return 'Foo class'
+```
+
+
 - `__format__`
 - `__bytes__`
 
@@ -25,6 +40,16 @@
 - `__setitem__`
 - `__delitem__`
 - `__contains__`
+- `__missing__`
+
+```python
+class DefalutDict(dict):
+    """default dict"""
+
+    def __missing__(self, key):
+        self['key'] = 'default'
+        return 'default'
+```
 
 
 ### 迭代枚举
@@ -37,6 +62,21 @@
 ### 调用模拟
 
 - `__call__`
+
+```python
+class Foo:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+        print('call __init__ with args({}, {}, {})'.format(
+            self.a, self.b, self.c))
+
+    def __call__(self, a, b):
+        self.a = a
+        self.b = b
+        print('call __call__ with args({}, {})'.format(self.a, self.b))
+```
 
 ### 上下文管理
 
