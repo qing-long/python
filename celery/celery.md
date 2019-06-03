@@ -146,5 +146,4 @@ def something():
 
 1. 加入exchange, queue, routing_key是为了保证celery 任务不被同一队列其他celery进程消费掉(如果部署多个不同celery | celery默认队列为`celery`)
 
-
 2. celery官方推荐rabbitmq, 在实际使用过程中我也觉得使用rabbitmq比较好
