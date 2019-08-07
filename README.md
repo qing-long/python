@@ -60,7 +60,8 @@
     - io
     - argparse
     - functools(./functools.py)
-        - [wraps的作用](./decorator_with_wraps.py)
+        - [wraps](./decorator_with_wraps.py)
+        - [partial]
 - ### 虚拟环境
     - pyvenv
     - virtualenv
